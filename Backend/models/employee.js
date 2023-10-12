@@ -31,19 +31,11 @@ const employeeSchema = new Schema({
         type: String,
         default: 'Employee'
     },
-    createdDate: {
-        type: Date,
-        default: Date.now
-    },
-    updatedDate: {
-        type: Date,
-        default: Date.now
-    },
     active: {
         type: Boolean,
         default: true
     }
-})
+}, { timestamps: true })
 
 const Employee = mongoose.model('Employee', employeeSchema)
 module.exports = Employee

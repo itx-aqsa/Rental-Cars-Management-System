@@ -31,19 +31,11 @@ const customerSchema = new Schema({
         type: String,
         default: 'Customer'
     },
-    createdDate: {
-        type: Date,
-        default: Date.now
-    },
-    updatedDate: {
-        type: Date,
-        default: Date.now
-    },
     active: {
         type: Boolean,
         default: true
-    }
-})
+    },
+}, { timestamps: true })
 
 const Customer = mongoose.model('Customer', customerSchema)
 module.exports = Customer
