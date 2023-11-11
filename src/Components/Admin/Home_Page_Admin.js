@@ -16,8 +16,6 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-// import InboxIcon from '@mui/icons-material/MoveToInbox';
-// import MailIcon from '@mui/icons-material/Mail';
 import "../../home_page.css";
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import EmployeesIcon from "@mui/icons-material/People";
@@ -27,16 +25,8 @@ import BrandsIcon from "@mui/icons-material/BrandingWatermark";
 import BookingsIcon from "@mui/icons-material/EventAvailable";
 import FeedbacksIcon from "@mui/icons-material/Feedback";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
-import Employees_Admin from "./Employees_Admin";
-import Vehicles_Admin from "./Vehicles_Admin";
-import Brands_Admin from "./Brands_Admin";
-import Customers_Admin from "./Customers_Admin";
-import Bookings_Admin from "./Bookings_Admin";
-import Feedbacks_Admin from "./Feedbacks_Admin";
-import Add_Employee_Admin from "./Add_Employee_Admin";
-import Add_Vehicle_Admin from "./Add_Vehicle_Admin";
-import Add_Brand_Admin from "./Add_Brand_Admin";
-import Dashboard_Admin from './Dashboard_Admin';
+import { useNavigate, Outlet } from 'react-router-dom'
+import { useEffect } from "react";
 
 const drawerWidth = 240;
 
@@ -66,7 +56,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -108,6 +97,7 @@ const Drawer = styled(MuiDrawer, {
 const Home_Page_Admin = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -116,6 +106,38 @@ const Home_Page_Admin = () => {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const handleDashboardClick = () => {
+    navigate("/admin")
+  }
+
+  const handleEmployeesClick = () => {
+    navigate("/admin/employees")
+  }
+
+  const handleCustomersClick = () => {
+    navigate("/admin/customers")
+  }
+
+  const handleVehiclesClick = () => {
+    navigate("/admin/vehicles")
+  }
+
+  const handleBrandsClick = () => {
+    navigate("/admin/brands")
+  }
+
+  const handleBookingsClick = () => {
+    navigate("/admin/bookings")
+  }
+
+  const handleFeedbacksClick = () => {
+    navigate("/admin/feedbacks")
+  }
+
+  const handleLogOutClick = () => {
+    
+  }
 
   
 
@@ -148,12 +170,6 @@ const Home_Page_Admin = () => {
           >
             Rental Cars
           </Typography>
-          {/* <Typography variant="h5" noWrap component="div" className='Admin_Heading'>
-            Admin
-          </Typography> */}
-          {/* <Typography variant="h6" noWrap component="div" className='Welcome_Heading'>
-            Welcome Mr. Zaeem
-          </Typography> */}
           <h3 className="Admin_Heading">Admin</h3>
           <h3 className="Welcome_Heading">Welcome Mr. Zaeem </h3>
         </Toolbar>
@@ -174,7 +190,6 @@ const Home_Page_Admin = () => {
         </DrawerHeader>
         <Divider />
         <List>
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => ( */}
           <ListItem key={"Dashboard"} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={{
@@ -182,6 +197,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleDashboardClick}
             >
               <ListItemIcon
                 sx={{
@@ -205,6 +221,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleEmployeesClick}
             >
               <ListItemIcon
                 sx={{
@@ -228,6 +245,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleVehiclesClick}
             >
               <ListItemIcon
                 sx={{
@@ -251,6 +269,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleCustomersClick}
             >
               <ListItemIcon
                 sx={{
@@ -274,6 +293,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleBrandsClick}
             >
               <ListItemIcon
                 sx={{
@@ -294,6 +314,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleBookingsClick}
             >
               <ListItemIcon
                 sx={{
@@ -310,13 +331,14 @@ const Home_Page_Admin = () => {
               />
             </ListItemButton>
           </ListItem>
-          <ListItem key={"Bookings"} disablePadding sx={{ display: "block" }}>
+          <ListItem key={"Feedbacks"} disablePadding sx={{ display: "block" }}>
             <ListItemButton
               sx={{
                 minHeight: 48,
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleFeedbacksClick}
             >
               <ListItemIcon
                 sx={{
@@ -335,7 +357,7 @@ const Home_Page_Admin = () => {
           </ListItem>
           {/* ))} */}
         </List>
-        <Divider style={{ marginTop: "170px" }} />
+        <Divider style={{ marginTop: "150px" }} />
         <List>
           <ListItem key={"Logout"} disablePadding sx={{ display: "block" }}>
             <ListItemButton
@@ -344,6 +366,7 @@ const Home_Page_Admin = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleLogOutClick}
             >
               <ListItemIcon
                 sx={{
@@ -361,16 +384,7 @@ const Home_Page_Admin = () => {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Dashboard_Admin />
-        {/* <Employees_Admin /> */}
-        {/* <Vehicles_Admin /> */}
-        {/* <Brands_Admin /> */}
-        {/* <Customers_Admin /> */}
-        {/* <Bookings_Admin /> */}
-        {/* <Feedbacks_Admin /> */}
-        {/* <Add_Employee_Admin /> */}
-        {/* <Add_Vehicle_Admin /> */}
-        {/* <Add_Brand_Admin /> */}
+        <Outlet />
       </Box>
     </Box>
   );
