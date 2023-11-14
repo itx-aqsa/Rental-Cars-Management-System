@@ -22,11 +22,7 @@ import BookingsIcon from "@mui/icons-material/EventAvailable";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
 import ReportsIcon from "@mui/icons-material/Description";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
-import Dashboard_Employee from "./Dashboard_Employee";
-import Reservations_Employee from "./Reservations_Employee";
-import Customers_Profile_Employee from "./Customers_Profile_Employee";
-import Edit_Customer_Profile_Employee from "./Edit_Customer_Profile_Employee";
-import Reports_Employee from "./Reports_Employee";
+import { useNavigate, Outlet } from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -56,7 +52,6 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   alignItems: "center",
   justifyContent: "flex-end",
   padding: theme.spacing(0, 1),
-  // necessary for content to be below app bar
   ...theme.mixins.toolbar,
 }));
 
@@ -95,17 +90,40 @@ const Drawer = styled(MuiDrawer, {
   }),
 }));
 
+
 const Home_Page_Employee = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
-
+  const navigate = useNavigate();
+  
   const handleDrawerOpen = () => {
     setOpen(true);
   };
-
+  
   const handleDrawerClose = () => {
     setOpen(false);
   };
+  
+  const handleReservationsClick = () => {
+    navigate('/employee/reservations')
+  }
+
+  const handleCustomersClick = () => {
+    navigate('/employee/customers')
+  }
+
+  const handleReportsClick = () => {
+    navigate('/employee/reports')
+  }
+
+  const handleLogOutClick = () => {
+    localStorage.removeItem('token')
+    navigate('/Login')
+  }
+
+  const handleDashboardClick = () => {
+    navigate('/employee')
+  }
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -136,12 +154,6 @@ const Home_Page_Employee = () => {
           >
             Rental Cars
           </Typography>
-          {/* <Typography variant="h5" noWrap component="div" className='Admin_Heading'>
-            Admin
-          </Typography> */}
-          {/* <Typography variant="h6" noWrap component="div" className='Welcome_Heading'>
-            Welcome Mr. Zaeem
-          </Typography> */}
           <h3 className="Admin_Heading">Employee</h3>
           <h3 className="Welcome_Heading">Welcome Mr. Zaeem </h3>
         </Toolbar>
@@ -170,6 +182,7 @@ const Home_Page_Employee = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleDashboardClick}
             >
               <ListItemIcon
                 sx={{
@@ -197,6 +210,7 @@ const Home_Page_Employee = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleReservationsClick}
             >
               <ListItemIcon
                 sx={{
@@ -220,6 +234,7 @@ const Home_Page_Employee = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleReportsClick}
             >
               <ListItemIcon
                 sx={{
@@ -247,6 +262,7 @@ const Home_Page_Employee = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleCustomersClick}
             >
               <ListItemIcon
                 sx={{
@@ -264,7 +280,7 @@ const Home_Page_Employee = () => {
             </ListItemButton>
           </ListItem>
         </List>
-        <Divider style={{ marginTop: "310px" }} />
+        <Divider style={{ marginTop: "290px" }} />
         <List>
           <ListItem key={"Logout"} disablePadding sx={{ display: "block" }}>
             <ListItemButton
@@ -273,6 +289,7 @@ const Home_Page_Employee = () => {
                 justifyContent: open ? "initial" : "center",
                 px: 2.5,
               }}
+              onClick={handleLogOutClick}
             >
               <ListItemIcon
                 sx={{
@@ -290,11 +307,7 @@ const Home_Page_Employee = () => {
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        {/* <Dashboard_Employee /> */}
-        {/* <Reservations_Employee /> */}
-        {/* <Customers_Profile_Employee /> */}
-        {/* <Edit_Customer_Profile_Employee /> */}
-        <Reports_Employee />
+        <Outlet />
       </Box>
     </Box>
   );
