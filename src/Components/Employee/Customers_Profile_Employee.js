@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { styled } from "@mui/material/styles";
 import Button from "@mui/material/Button";
 import Table from "@mui/material/Table";
@@ -8,11 +8,25 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import Fab from "@mui/material/Fab";
-import EditIcon from "@mui/icons-material/Edit";
-import DeleteIcon from '@mui/icons-material/Delete';
+import { useNavigate } from 'react-router-dom';
+import { CustomerContext } from '../../Context/AllContexts';
 
 const Customers_Profile_Employee = () => {
+  const navigate = useNavigate();
+
+  const Context = useContext(CustomerContext)
+  const { customers, setCustomers, fetchAllCustomers, customerToBeEdited, setCustomerToBeEdited } = Context;
+
+  useEffect(() => {
+    if(localStorage.getItem('token')){
+      fetchAllCustomers();
+    }
+    else{
+      alert("You have to Logged In into the system.")
+      navigate('/Login')
+    }
+}, [])
+
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.black,
@@ -33,55 +47,9 @@ const Customers_Profile_Employee = () => {
     },
   }));
 
-  function createData(name, calories, fat, carbs, protein) {
-    return { name, calories, fat, carbs, protein };
+  const handleEditClick = () => {
+    
   }
-
-  const rows = [
-    {
-      _id: "651c2e64a6724252ca540847",
-      name: "zain",
-      password: "73000",
-      email: "zain@gmail.com",
-      contact: "030921212",
-      address: "Lahore",
-      username: "zain",
-      role: "Employee",
-      active: true,
-      createdDate: "2023-10-03T15:08:20.600Z",
-      updatedDate: "2023-10-03T15:08:20.601Z",
-      __v: 0,
-    },
-    {
-      _id: "651c65cadd36f193bd35e923",
-      name: "ahmad",
-      password: "123",
-      email: "ahmad@gmail.com",
-      contact: "030921212",
-      address: "Lahore",
-      username: "ahmad",
-      role: "Employee",
-      active: true,
-      createdDate: "2023-10-03T19:04:42.987Z",
-      updatedDate: "2023-10-03T19:04:42.987Z",
-      __v: 0,
-    },
-    {
-      _id: "651c65e5dd36f193bd35e925",
-      name: "bilal",
-      password: "56464",
-      email: "goodbilal@gmail.com",
-      contact: "1234567823",
-      address: "Multan",
-      username: "bilal",
-      role: "Employee",
-      active: true,
-      createdDate: "2023-10-03T19:05:09.112Z",
-      updatedDate: "2023-10-07T06:02:28.756Z",
-      __v: 0,
-    },
-  ];
-
 
 return (
 <div>
@@ -103,7 +71,7 @@ return (
               </TableRow>
             </TableHead>
             <TableBody>
-              {rows.map((row) => (
+              {customers.map((row) => (
                 <StyledTableRow key={row.name}>
                   <StyledTableCell style={{fontSize: '15px'}} component="th" scope="row">
                     {row.name}
@@ -112,9 +80,19 @@ return (
                   <StyledTableCell style={{fontSize: '15px'}} >{row.contact}</StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >{row.username}</StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >{row.address}</StyledTableCell>
-                  <StyledTableCell style={{fontSize: '15px'}} >{row.contact}</StyledTableCell>
+                  <StyledTableCell style={{fontSize: '15px'}} >{row.createdAt}</StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >
-                  <Button variant="contained" style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}}>Edit</Button>  
+                  <Button variant="contained" onClick={()=>{
+                    setCustomerToBeEdited({
+                      id: row._id,
+                      name: row.name,
+                      password: row.password,
+                      contact: row.contact,
+                      username: row.username,
+                      address: row.address
+                    })
+                    navigate('/employee/editcustomer');
+                  }} style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}}>Edit</Button>  
                   </StyledTableCell>
                 </StyledTableRow>
               ))}
