@@ -20,12 +20,12 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import VpnKeyIcon from '@mui/icons-material/VpnKey';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
-import HomeIcon from '@mui/icons-material/Home';
-import InfoIcon from '@mui/icons-material/Info';
-import HelpIcon from '@mui/icons-material/Help';
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import VpnKeyIcon from "@mui/icons-material/VpnKey";
+import ContactMailIcon from "@mui/icons-material/ContactMail";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import HelpIcon from "@mui/icons-material/Help";
 import "../../Home_Page_Customer.css";
 import Home_Section1_Customer from "./Home_Section1_Customer";
 import Home_Section2_Customer from "./Home_Section2_Customer";
@@ -36,6 +36,8 @@ import Contact_Us_Customer from "./Contact_Us_Customer";
 import Rules_Insurance_Customer from "./Rules_Insurance_Customer";
 import Help_Center_Customer from "./Help_Center_Customer";
 import About_Us_Customer from "./About_Us_Customer";
+import { Link, useLocation, useNavigate, Outlet } from "react-router-dom";
+import Customer_Main_Section from "./Customer_Main_Section";
 
 const Home_Page_Customer = () => {
   const [auth, setAuth] = React.useState(true);
@@ -93,19 +95,27 @@ const Home_Page_Customer = () => {
       onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        <ListItem style={{marginTop: '30px'}}>
-        <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              <a href="#" style={{color: 'red', textDecoration: 'none', fontWeight: 'bold', marginLeft: '30px'}}>
-                Rental Cars
-              </a>
-            </Typography>
+        <ListItem style={{ marginTop: "30px" }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+            <Link
+              to="/"
+              style={{
+                color: "red",
+                textDecoration: "none",
+                fontWeight: "bold",
+                marginLeft: "30px",
+              }}
+            >
+              Rental Cars
+            </Link>
+          </Typography>
         </ListItem>
         <ListItem>
           <ListItemButton onClick={handleListItemClick}>
             <ListItemIcon>
               <HomeIcon />
             </ListItemIcon>
-            <ListItemText primary="Home"  />
+            <ListItemText primary="Home" />
           </ListItemButton>
         </ListItem>
         <ListItem>
@@ -129,11 +139,11 @@ const Home_Page_Customer = () => {
             <ListItemIcon>
               <HelpIcon />
             </ListItemIcon>
-            <ListItemText primary="Help & Policies"/>
+            <ListItemText primary="Help & Policies" />
           </ListItemButton>
         </ListItem>
       </List>
-      <Divider style={{marginTop: '130px'}} />
+      <Divider style={{ marginTop: "130px" }} />
       <List>
         <ListItem>
           <ListItemButton onClick={handleListItemClick}>
@@ -169,119 +179,11 @@ const Home_Page_Customer = () => {
             label={auth ? 'Logout' : 'Login'}
           />
         </FormGroup> */}
-      <AppBar
-        position="sticky"
-        style={{ backgroundColor: "rgb(245, 243, 243)" }}
-      >
-        <Toolbar>
-          <div className="Hamburger">
-            <IconButton
-              size="large"
-              edge="start"
-              color="dark"
-              aria-label="menu"
-              sx={{ mr: 2 }}
-              onClick={toggleDrawer("left", true)}
-            >
-              <Drawer
-                anchor={"left"}
-                open={state["left"]}
-                onClose={toggleDrawer("left", false)}
-              >
-                {list("left")}
-              </Drawer>
-              <MenuIcon />
-            </IconButton>
-          </div>
-          <div className="navbar_items">
-            <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              <a href="#" className="Company_Heading">
-                Rental Cars
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_item">
-                Home
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_item">
-                About Us
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_item">
-                Contact Us
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_item">
-                Help & Policies
-              </a>
-            </Typography>
-          </div>
-          <div className="navbar_auth">
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_auth_item">
-                Sign Up
-              </a>
-            </Typography>
-            <Typography variant="h6" component="div">
-              <a href="#" className="navbar_auth_item">
-                Log In
-              </a>
-            </Typography>
-          </div>
-
-          {/* {auth && (
-              <div>
-                <IconButton
-                  size="large"
-                  aria-label="account of current user"
-                  aria-controls="menu-appbar"
-                  aria-haspopup="true"
-                  onClick={handleMenu}
-                  color="dark"
-                >
-                  <AccountCircle />
-                </IconButton>
-                <Menu
-                  id="menu-appbar"
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  keepMounted
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'right',
-                  }}
-                  open={Boolean(anchorEl)}
-                  onClose={handleClose}
-                >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                </Menu>
-              </div>
-            )} */}
-        </Toolbar>
-      </AppBar>
 
 
-
-
-      <div>
-            {/* <Home_Section1_Customer /> */}
-            {/* <Home_Section2_Customer /> */}
-            <One_Vehicle_Page_Customer />
-            {/* <Reservation_Vehicle_Customer /> */}
-            {/* <Contact_Us_Customer /> */}
-            {/* <Rules_Insurance_Customer /> */}
-            {/* <Help_Center_Customer /> */}
-            {/* <About_Us_Customer /> */}
-            {/* <Home_Section3_Customer /> */}
-      </div>
+      <Customer_Main_Section />
+      <Outlet />
+     
     </div>
   );
 };
