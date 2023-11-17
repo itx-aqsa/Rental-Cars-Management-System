@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -7,8 +7,20 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import "../../Help_Center.css";
 import image from "../../Images/tow.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Help_Center_Customer = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("customerToken")) {
+      
+    } else {
+      alert("You have to Logged In into the system.");
+      navigate("/Login");
+    }
+  }, []);
+  
   return (
     <div className="Main_Page">
       <div className="one_portion">
@@ -61,6 +73,7 @@ const Help_Center_Customer = () => {
             marginTop: "50px",
             marginLeft: "10%",
           }}
+          onClick={()=>{navigate('/')}}
         >
           Cancel
         </Button>
