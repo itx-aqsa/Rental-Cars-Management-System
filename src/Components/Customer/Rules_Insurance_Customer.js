@@ -7,8 +7,11 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import "../../Rules_Insurance.css";
 import image from '../../Images/tow.jpeg'
+import { useNavigate } from "react-router-dom";
 
 const Rules_Insurance_Customer = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="Main_Page">
       <div className="one_portion">
@@ -48,6 +51,7 @@ const Rules_Insurance_Customer = () => {
                   marginTop: '50px',
                   marginLeft: '10%'
                 }}
+                onClick={()=>{navigate('/')}}
               >
                 Cancel
               </Button>
