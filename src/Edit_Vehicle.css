@@ -1,0 +1,309 @@
+
+.Uploadeditvehicle_Button{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+@media (min-width: 1201px){
+    .NameeditVehicle_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .brandeditvehicle_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+
+    .pricePerDayeditvehicle_label{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+    
+    .yeareditvehicle_label{
+        margin-right: 116px;
+        font-size: 18px;
+    }
+    
+    .plateeditvehicle_label{
+        margin-right: 78px;
+        font-size: 18px;
+    }
+ 
+    .discounteditvehicle_label{
+        margin-right: 80px;
+        font-size: 18px;
+    }
+    
+    .descriptioneditvehicle_label{
+        margin-right: 56px;
+        font-size: 18px;
+    }
+
+    .nameeditvehicle_label{
+        margin-top: 8px;
+        height: 50px;
+        width: 500px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+
+    .buttoneditvehicle{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .NameeditVehicle_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .brandeditvehicle_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+
+    .pricePerDayeditvehicle_label{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+    
+    .yeareditvehicle_label{
+        margin-right: 116px;
+        font-size: 18px;
+    }
+    
+    .plateeditvehicle_label{
+        margin-right: 78px;
+        font-size: 18px;
+    }
+ 
+    .discounteditvehicle_label{
+        margin-right: 80px;
+        font-size: 18px;
+    }
+    
+    .descriptioneditvehicle_label{
+        margin-right: 56px;
+        font-size: 18px;
+    }
+
+    .nameeditvehicle_label{
+        margin-top: 8px;
+        height: 50px;
+        width: 500px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    
+    .buttoneditvehicle{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .NameeditVehicle_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .brandeditvehicle_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+
+    .pricePerDayeditvehicle_label{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+    
+    .yeareditvehicle_label{
+        margin-right: 116px;
+        font-size: 18px;
+    }
+    
+    .plateeditvehicle_label{
+        margin-right: 78px;
+        font-size: 18px;
+    }
+ 
+    .discounteditvehicle_label{
+        margin-right: 80px;
+        font-size: 18px;
+    }
+    
+    .descriptioneditvehicle_label{
+        margin-right: 56px;
+        font-size: 18px;
+    }
+
+    .nameeditvehicle_label{
+        margin-top: 8px;
+        height: 50px;
+        width: 400px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    
+    .buttoneditvehicle{
+        margin-left: 14%;
+        margin-right: 14%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .NameeditVehicle_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .brandeditvehicle_label{
+        margin-right: 90px;
+        font-size: 18px;
+    }
+
+    .pricePerDayeditvehicle_label{
+        margin-right: 30px;
+        font-size: 18px;
+    }
+    
+    .yeareditvehicle_label{
+        margin-right: 106px;
+        font-size: 18px;
+    }
+    
+    .plateeditvehicle_label{
+        margin-right: 68px;
+        font-size: 18px;
+    }
+ 
+    .discounteditvehicle_label{
+        margin-right: 70px;
+        font-size: 18px;
+    }
+    
+    .descriptioneditvehicle_label{
+        margin-right: 46px;
+        font-size: 18px;
+    }
+  
+    .nameeditvehicle_label{
+        margin-top: 8px;
+        height: 50px;
+        width: 350px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    
+    .buttoneditvehicle{
+        margin-left: 8%;
+        margin-right: 8%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 576px){
+    .NameeditVehicle_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .brandeditvehicle_label{
+        margin-right: 70px;
+        font-size: 16px;
+    }
+
+    .pricePerDayeditvehicle_label{
+        margin-right: 15px;
+        font-size: 18px;
+    }
+    
+    .yeareditvehicle_label{
+        margin-right: 86px;
+        font-size: 16px;
+    }
+    
+    .plateeditvehicle_label{
+        margin-right: 48px;
+        font-size: 16px;
+    }
+ 
+    .discounteditvehicle_label{
+        margin-right: 50px;
+        font-size: 16px;
+    }
+    
+    .descriptioneditvehicle_label{
+        margin-right: 26px;
+        font-size: 16px;
+    }
+ 
+    .nameeditvehicle_label{
+        margin-top: 8px;
+        height: 50px;
+        width: 300px;
+        border-radius: 3px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 20px;
+    }
+    
+    .buttoneditvehicle{
+        margin-left: 1%;
+        margin-right: 1%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
