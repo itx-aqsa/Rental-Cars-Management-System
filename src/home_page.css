@@ -1,0 +1,393 @@
+@media (min-width: 1201px){
+    .RentalCars_Heading{
+        color: red;
+        font-weight: bold;
+    }
+    
+    .Admin_Heading{
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        margin: auto;
+    }
+    
+    .Welcome_Heading{
+        color: black;
+        font-weight: normal;
+        font-size: 18px;
+        /* margin-left: 300px; */
+    }
+    
+    .Dashboard_Cards_Portion{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2%;
+    }
+    
+    .One_Card{
+        margin-left: 5%;
+        margin-top: 40px;
+        /* width: 240px; */
+        width: 28%;
+        border-radius: 8px;
+    }
+    
+    .Card_Portion{
+        background-color: #FF7272;
+        padding-top: 24px;
+        padding-bottom: 16px;
+        /* padding-left: 24px;
+        padding-right: 24px; */
+    }
+    
+    .Card_Portion_Number{
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .Card_Portion_Heading{
+        text-align: center;   
+        font-weight: bold;
+    }
+    
+    .Card_View_Details{
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-left: 30%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .Card_View_Details:hover{
+        color: red;
+    }    
+
+    .First_Line{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .check{
+        font-size: 16px;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .RentalCars_Heading{
+        color: red;
+        font-weight: bold;
+    }
+    
+    .Admin_Heading{
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        margin: auto;
+    }
+    
+    .Welcome_Heading{
+        color: black;
+        font-weight: normal;
+        font-size: 18px;
+        /* margin-left: 300px; */
+    }
+    
+    .Dashboard_Cards_Portion{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2%;
+    }
+    
+    .One_Card{
+        margin-left: 4%;
+        margin-top: 40px;
+        /* width: 260px; */
+        width: 28%;
+        border-radius: 8px;
+    }
+    
+    .Card_Portion{
+        background-color: #FF7272;
+        padding-top: 24px;
+        padding-bottom: 16px;
+        /* padding-left: 24px;
+        padding-right: 24px; */
+    }
+    
+    .Card_Portion_Number{
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .Card_Portion_Heading{
+        text-align: center;   
+        font-weight: bold;
+    }
+    
+    .Card_View_Details{
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-left: 28%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .Card_View_Details:hover{
+        color: red;
+    }    
+
+    .First_Line{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .RentalCars_Heading{
+        color: red;
+        font-weight: bold;
+    }
+    
+    .Admin_Heading{
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        margin: auto;
+    }
+    
+    .Welcome_Heading{
+        color: black;
+        font-weight: normal;
+        font-size: 18px;
+        /* margin-left: 300px; */
+    }
+    
+    .Dashboard_Cards_Portion{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2%;
+    }
+    
+    .One_Card{
+        margin-left: 6%;
+        margin-top: 40px;
+        /* width: 200px; */
+        width: 40%;
+        border-radius: 8px;
+    }
+    
+    .Card_Portion{
+        background-color: #FF7272;
+        padding-top: 24px;
+        padding-bottom: 16px;
+        /* padding-left: 24px;
+        padding-right: 24px; */
+    }
+    
+    .Card_Portion_Number{
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .Card_Portion_Heading{
+        text-align: center;   
+        font-weight: bold;
+    }
+    
+    .Card_View_Details{
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-left: 30%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .Card_View_Details:hover{
+        color: red;
+    }    
+
+    .First_Line{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .RentalCars_Heading{
+        color: red;
+        font-weight: bold;
+    }
+    
+    .Admin_Heading{
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        margin: auto;
+        display: none;
+    }
+    
+    .Welcome_Heading{
+        color: black;
+        font-weight: normal;
+        font-size: 18px;
+        /* margin-left: 300px; */
+        display: none;
+    }
+    
+    .Dashboard_Cards_Portion{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2%;
+    }
+    
+    .One_Card{
+        margin-left: 5%;
+        margin-top: 40px;
+        /* width: 260px; */
+        width: 44%;
+        border-radius: 8px;
+    }
+    
+    .Card_Portion{
+        background-color: #FF7272;
+        padding-top: 24px;
+        padding-bottom: 16px;
+        /* padding-left: 24px;
+        padding-right: 24px; */
+    }
+    
+    .Card_Portion_Number{
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .Card_Portion_Heading{
+        text-align: center;   
+        font-weight: bold;
+    }
+    
+    .Card_View_Details{
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-left: 23%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .Card_View_Details:hover{
+        color: red;
+    }   
+    
+    .First_Line{
+        display: flex;
+        /* flex-direction: column; */
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 576px){
+    .RentalCars_Heading{
+        color: red;
+        font-weight: bold;
+    }
+    
+    .Admin_Heading{
+        color: black;
+        font-weight: bold;
+        font-size: 26px;
+        margin: auto;
+        display: none;
+    }
+    
+    .Welcome_Heading{
+        color: black;
+        font-weight: normal;
+        font-size: 18px;
+        display: none;
+        /* margin-left: 300px; */
+    }
+    
+    .Dashboard_Cards_Portion{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 2%;
+    }
+    
+    .One_Card{
+        margin-left: 8%;
+        margin-top: 40px;
+        /* width: 260px; */
+        width: 80%;
+        border-radius: 8px;
+    }
+    
+    .Card_Portion{
+        background-color: #FF7272;
+        padding-top: 24px;
+        padding-bottom: 16px;
+        /* padding-left: 24px;
+        padding-right: 24px; */
+    }
+    
+    .Card_Portion_Number{
+        text-align: center;
+        font-weight: bold;
+    }
+    
+    .Card_Portion_Heading{
+        text-align: center;   
+        font-weight: bold;
+    }
+    
+    .Card_View_Details{
+        color: black;
+        text-decoration: none;
+        text-transform: capitalize;
+        margin-left: 30%;
+        font-weight: bold;
+        font-size: 18px;
+    }
+    
+    .Card_View_Details:hover{
+        color: red;
+    }    
+
+    .First_Line{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
