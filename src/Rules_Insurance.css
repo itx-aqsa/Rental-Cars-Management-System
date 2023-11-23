@@ -1,0 +1,218 @@
+@media (min-width: 1201px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 40px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 30px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 10%;
+        height: 350px;
+        margin-top: 100px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 0px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 85%;
+        margin-left: 5%;
+        height: 350px;
+        margin-top: 130px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        padding-top: 30px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 80%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        /* margin-left: 40px; */
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        display: none;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+}
+
+@media (max-width: 576px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        padding-top: 30px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 90%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        /* margin-left: 40px; */
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        display: none;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+}
+
