@@ -1,0 +1,200 @@
+@media (min-width: 1201px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .reportaddreport_label{
+        margin-right: 50px;
+        font-size: 18px;
+    }
+
+    .reportselectcustomer_label{
+        margin-right: 24px;
+        font-size: 18px;
+    }
+    
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+
+    .buttonaddreport{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .reportaddreport_label{
+        margin-right: 50px;
+        font-size: 18px;
+    }
+
+    .reportselectcustomer_label{
+        margin-right: 24px;
+        font-size: 18px;
+    }
+    
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .buttonaddreport{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .reportaddreport_label{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+
+    .reportselectcustomer_label{
+        margin-right: 14px;
+        font-size: 18px;
+    }
+
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .buttonaddreport{
+        margin-left: 14%;
+        margin-right: 14%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .reportaddreport_label{
+        margin-right: 40px;
+        font-size: 18px;
+    }
+
+    .reportselectcustomer_label{
+        margin-right: 14px;
+        font-size: 18px;
+    }
+  
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .buttonaddreport{
+        margin-left: 8%;
+        margin-right: 8%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 576px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .reportaddreport_label{
+        margin-right: 40px;
+        font-size: 16px;
+    }
+
+    .reportselectcustomer_label{
+        margin-right: 14px;
+        font-size: 16px;
+    }
+ 
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+    
+    .buttonaddreport{
+        margin-left: 0%;
+        margin-right: 0%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
