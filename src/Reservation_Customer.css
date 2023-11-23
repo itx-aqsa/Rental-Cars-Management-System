@@ -1,0 +1,325 @@
+@media (min-width: 1201px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .name_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+    
+    .email_label{
+        margin-right: 103px;
+        font-size: 18px;
+    }
+    
+    .password_label{
+        margin-right: 34px;
+        font-size: 18px;
+    }
+    
+    .contact_label{
+        margin-right: 62px;
+        font-size: 18px;
+    }
+    
+    .username_label{
+        margin-right: 69px;
+        font-size: 18px;
+    }
+    
+    .address_label{
+        margin-right: 50px;
+        font-size: 20px;
+    }
+
+    .price{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+
+    .button{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .name_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+    
+    .email_label{
+        margin-right: 103px;
+        font-size: 18px;
+    }
+    
+    .password_label{
+        margin-right: 34px;
+        font-size: 18px;
+    }
+    
+    .contact_label{
+        margin-right: 62px;
+        font-size: 18px;
+    }
+    
+    .username_label{
+        margin-right: 69px;
+        font-size: 18px;
+    }
+    
+    .address_label{
+        margin-right: 50px;
+        font-size: 20px;
+    }
+
+    .price{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .button{
+        margin-left: 20%;
+        margin-right: 20%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .name_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+    
+    .email_label{
+        margin-right: 103px;
+        font-size: 18px;
+    }
+    
+    .password_label{
+        margin-right: 34px;
+        font-size: 18px;
+    }
+    
+    .contact_label{
+        margin-right: 62px;
+        font-size: 18px;
+    }
+    
+    .username_label{
+        margin-right: 69px;
+        font-size: 18px;
+    }
+    
+    .address_label{
+        margin-right: 50px;
+        font-size: 20px;
+    }
+
+    .price{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .button{
+        margin-left: 14%;
+        margin-right: 14%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .name_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+    
+    .email_label{
+        margin-right: 103px;
+        font-size: 18px;
+    }
+    
+    .password_label{
+        margin-right: 34px;
+        font-size: 18px;
+    }
+    
+    .contact_label{
+        margin-right: 62px;
+        font-size: 18px;
+    }
+    
+    .username_label{
+        margin-right: 69px;
+        font-size: 18px;
+    }
+    
+    .address_label{
+        margin-right: 50px;
+        font-size: 20px;
+    }
+
+    .price{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+  
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 30px;
+    }
+    
+    .button{
+        margin-left: 8%;
+        margin-right: 8%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
+@media (max-width: 576px){
+    .Name_Field{
+        display: flex;
+        width: 100%;
+        margin-left: 0%;
+        /* border: 1px solid red; */
+        height: 60px;
+        justify-content: center;
+    }
+    
+    .name_label{
+        margin-right: 100px;
+        font-size: 18px;
+    }
+    
+    .email_label{
+        margin-right: 103px;
+        font-size: 18px;
+    }
+    
+    .password_label{
+        margin-right: 34px;
+        font-size: 18px;
+    }
+    
+    .contact_label{
+        margin-right: 62px;
+        font-size: 18px;
+    }
+    
+    .username_label{
+        margin-right: 69px;
+        font-size: 18px;
+    }
+    
+    .address_label{
+        margin-right: 50px;
+        font-size: 20px;
+    }
+
+    .price{
+        margin-top: 25px;
+        font-size: 20px;
+    }
+ 
+    .name_input{
+        margin-top: 18px;
+        height: 30px;
+        width: 50%;
+        border-radius: 4px;
+        border: 1px solid black;
+        font-size: 16px;
+        padding-left: 10px;
+    }
+    
+    .button{
+        margin-left: 1%;
+        margin-right: 1%;
+        display: flex;
+        margin-top: 3%;
+        justify-content: space-between;
+        margin-bottom: 2%;
+    }
+}
+
