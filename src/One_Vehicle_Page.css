@@ -1,0 +1,437 @@
+@media (min-width: 1201px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        /* margin-bottom: 600px; */
+    }
+
+    .image_portion{
+        width: 38%;
+        /* border: 1px solid green; */
+        height: 500px;
+
+    }
+
+    .Image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .information_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        padding-left: 6%;
+    }
+
+    .first_line{
+        display: flex;
+        height: 80px;
+    }
+
+    .brand{
+        font-size: 30px;
+        margin-right: 8%;
+    }
+
+    .year{
+        margin-top: 34px;
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 18px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .second_line{
+        display: flex;
+        height: 40px;
+    }
+
+    .BrandName{
+        margin-right: 160px;
+        font-weight: 600;
+    }
+
+    .pricename{
+        margin-right: 100px;
+        font-weight: 600;
+    }
+
+    .discountname{
+        margin-right: 78px;
+        font-weight: 600;   
+    }
+
+    .statusname{
+        margin-right: 63px;
+        font-weight: 600;   
+    }
+
+    .platename{
+        margin-right: 96px;
+        font-weight: 600;   
+    }
+
+    .button_line{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        /* margin-bottom: 600px; */
+    }
+
+    .image_portion{
+        width: 38%;
+        /* border: 1px solid green; */
+        height: 400px;
+    }
+
+    .Image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .information_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        padding-left: 6%;
+    }
+
+    .first_line{
+        display: flex;
+        height: 80px;
+    }
+
+    .brand{
+        font-size: 30px;
+        margin-right: 8%;
+    }
+
+    .year{
+        margin-top: 34px;
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 18px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .second_line{
+        display: flex;
+        height: 40px;
+    }
+
+    .BrandName{
+        margin-right: 160px;
+        font-weight: 600;
+    }
+
+    .pricename{
+        margin-right: 100px;
+        font-weight: 600;
+    }
+
+    .discountname{
+        margin-right: 78px;
+        font-weight: 600;   
+    }
+
+    .statusname{
+        margin-right: 63px;
+        font-weight: 600;   
+    }
+
+    .platename{
+        margin-right: 96px;
+        font-weight: 600;   
+    }
+
+    .button_line{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        /* margin-bottom: 600px; */
+    }
+
+    .image_portion{
+        width: 38%;
+        /* border: 1px solid green; */
+        height: 350px;
+    }
+
+    .Image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .information_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        padding-left: 6%;
+    }
+
+    .first_line{
+        display: flex;
+        height: 80px;
+    }
+
+    .brand{
+        font-size: 30px;
+        margin-right: 8%;
+    }
+
+    .year{
+        margin-top: 34px;
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 18px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .second_line{
+        display: flex;
+        height: 40px;
+    }
+
+    .BrandName{
+        margin-right: 140px;
+        font-weight: 600;
+    }
+
+    .pricename{
+        margin-right: 80px;
+        font-weight: 600;
+    }
+
+    .discountname{
+        margin-right: 58px;
+        font-weight: 600;   
+    }
+
+    .statusname{
+        margin-right: 43px;
+        font-weight: 600;   
+    }
+
+    .platename{
+        margin-right: 76px;
+        font-weight: 600;   
+    }
+
+    .button_line{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 70px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* margin-bottom: 600px; */
+    }
+
+    .image_portion{
+        width: 70%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .information_portion{
+        margin-top: 20px;
+        /* border: 1px solid red; */
+        width: 80%;
+        padding-left: 6%;
+    }
+
+    .first_line{
+        display: flex;
+        height: 80px;
+    }
+
+    .brand{
+        font-size: 30px;
+        margin-right: 8%;
+    }
+
+    .year{
+        margin-top: 34px;
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 18px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .second_line{
+        display: flex;
+        height: 40px;
+    }
+
+    .BrandName{
+        margin-right: 160px;
+        font-weight: 600;
+    }
+
+    .pricename{
+        margin-right: 100px;
+        font-weight: 600;
+    }
+
+    .discountname{
+        margin-right: 78px;
+        font-weight: 600;   
+    }
+
+    .statusname{
+        margin-right: 63px;
+        font-weight: 600;   
+    }
+
+    .platename{
+        margin-right: 96px;
+        font-weight: 600;   
+    }
+
+    .button_line{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+}
+
+@media (max-width: 576px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 70px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        /* margin-bottom: 600px; */
+    }
+
+    .image_portion{
+        width: 70%;
+        /* border: 1px solid green; */
+        height: 400px;
+    }
+
+    .Image{
+        width: 100%;
+        height: 100%;
+    }
+
+    .information_portion{
+        margin-top: 20px;
+        /* border: 1px solid red; */
+        width: 80%;
+        padding-left: 6%;
+    }
+
+    .first_line{
+        display: flex;
+        height: 80px;
+    }
+
+    .brand{
+        font-size: 30px;
+        margin-right: 8%;
+    }
+
+    .year{
+        margin-top: 34px;
+        font-size: 20px;
+    }
+
+    .description{
+        font-size: 18px;
+        width: 90%;
+        text-align: justify;
+    }
+
+    .second_line{
+        display: flex;
+        height: 40px;
+    }
+
+    .BrandName{
+        margin-right: 160px;
+        font-weight: 600;
+    }
+
+    .pricename{
+        margin-right: 100px;
+        font-weight: 600;
+    }
+
+    .discountname{
+        margin-right: 78px;
+        font-weight: 600;   
+    }
+
+    .statusname{
+        margin-right: 63px;
+        font-weight: 600;   
+    }
+
+    .platename{
+        margin-right: 96px;
+        font-weight: 600;   
+    }
+
+    .button_line{
+        display: flex;
+        justify-content: space-between;
+        padding-right: 20px;
+        margin-top: 40px;
+    }
+}
+
