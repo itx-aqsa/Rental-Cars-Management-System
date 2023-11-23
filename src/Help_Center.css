@@ -1,0 +1,424 @@
+@media (min-width: 1201px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 50px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .First_Paragraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 40px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+
+    .For_Phone{
+        display: flex;
+        height: 50px;
+        margin-left: 40px;
+    }
+
+    .Phonename{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 50px;
+    }
+
+    .Phonenumber{
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .For_Email{
+        display: flex;
+        margin-left: 40px;
+    }
+
+    .Emailname{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 60px;
+    }
+
+    .Emailaddress{
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .First_Paragraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 30px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 10%;
+        height: 350px;
+        margin-top: 100px;
+    }
+    
+    .For_Phone{
+        display: flex;
+        height: 50px;
+        margin-left: 40px;
+    }
+
+    .Phonename{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 50px;
+    }
+
+    .Phonenumber{
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .For_Email{
+        display: flex;
+        margin-left: 40px;
+    }
+
+    .Emailname{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 60px;
+    }
+
+    .Emailaddress{
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 992px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 100px;
+        padding-left: 8%;
+        display: flex;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 44%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 32px;
+    }
+
+    .First_Paragraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        margin-left: 0px;
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+    }
+
+    .Image{
+        width: 85%;
+        margin-left: 5%;
+        height: 350px;
+        margin-top: 130px;
+    }
+    
+    .For_Phone{
+        display: flex;
+        height: 50px;
+    }
+
+    .Phonename{
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 20px;
+    }
+
+    .Phonenumber{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .For_Email{
+        display: flex;
+    }
+
+    .Emailname{
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 30px;
+    }
+
+    .Emailaddress{
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 30px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 80%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 50px;
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .First_Paragraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        /* margin-left: 40px; */
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        display: none;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+
+    .For_Phone{
+        display: flex;
+        height: 50px;
+        margin-left: 40px;
+    }
+
+    .Phonename{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 50px;
+    }
+
+    .Phonenumber{
+        font-size: 22px;
+        font-weight: 600;
+    }
+
+    .For_Email{
+        display: flex;
+        margin-left: 40px;
+    }
+
+    .Emailname{
+        font-size: 22px;
+        font-weight: 600;
+        margin-right: 60px;
+    }
+
+    .Emailaddress{
+        font-size: 22px;
+        font-weight: 600;
+    }
+}
+
+@media (max-width: 576px){
+    .Main_Page{
+        /* border: 1px solid black; */
+        margin-top: 65px;
+        padding-top: 30px;
+        /* padding-left: 8%; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 600px;
+    }
+
+    .one_portion{
+        width: 90%;
+        /* border: 1px solid green; */
+        height: 500px;
+    }
+
+    .Contact_Us_Heading{
+        margin-top: 20px;
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .First_Paragraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        padding: 0;
+    }
+
+    .Contact_Us_Paragaraph{
+        font-size: 16px;
+        text-align: justify;
+        font-weight: 500;
+        margin-top: 0;
+        /* margin-left: 40px; */
+        padding: 0;
+    }
+
+    .contact_portion{
+        /* border: 1px solid red; */
+        width: 50%;
+        display: none;
+    }
+
+    .Image{
+        width: 80%;
+        margin-left: 15%;
+        height: 350px;
+        margin-top: 100px;
+    }
+    
+    .For_Phone{
+        display: flex;
+        height: 50px;
+    }
+
+    .Phonename{
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 30px;
+    }
+
+    .Phonenumber{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    .For_Email{
+        display: flex;
+    }
+
+    .Emailname{
+        font-size: 20px;
+        font-weight: 600;
+        margin-right: 40px;
+    }
+
+    .Emailaddress{
+        font-size: 20px;
+        font-weight: 600;
+    }
+}
+
