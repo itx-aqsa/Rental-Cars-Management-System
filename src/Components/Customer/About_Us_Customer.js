@@ -1,17 +1,28 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Button from "@mui/material/Button";
 import "../../Help_Center.css";
 import image from "../../Images/tow.jpeg";
 import { useNavigate } from "react-router-dom";
+import { AlertContext } from "../../Context/AllContexts";
 
 const About_Us_Customer = () => {
   const navigate = useNavigate();
+
+  const alertcontext = useContext(AlertContext)
+  const { setShowAlert, setAlertData } = alertcontext
 
   useEffect(() => {
     if (localStorage.getItem("customerToken")) {
       
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);

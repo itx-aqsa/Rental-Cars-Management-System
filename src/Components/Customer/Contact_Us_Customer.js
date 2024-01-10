@@ -1,15 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import Button from "@mui/material/Button";
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import "../../ContactUs.css";
 import { useNavigate } from "react-router-dom";
-import { VehicleContext, FeedbackContext, CustomerContext } from "../../Context/AllContexts";
-import Box from '@mui/material/Box';
+import { VehicleContext, FeedbackContext, CustomerContext, AlertContext } from "../../Context/AllContexts";
 import Rating from '@mui/material/Rating';
-import Typography from '@mui/material/Typography';
-import StarIcon from '@mui/icons-material/Star';
 
 const Contact_Us_Customer = () => {
   const navigate = useNavigate();
@@ -24,17 +18,26 @@ const Contact_Us_Customer = () => {
   const vehiclecontext = useContext(VehicleContext);
   const feedbackcontext = useContext(FeedbackContext);
   const customercontext = useContext(CustomerContext)
+  const alertcontext = useContext(AlertContext)
 
-  const { vehicles, setVehicles, fetchAllVehicles } = vehiclecontext;
-  const { feedbacks, setFeedbacks, addNewFeedback } = feedbackcontext;
-  const { getCustomer, setGetCustomer, GetCustomerData } = customercontext;
+  const { setShowAlert, setAlertData } = alertcontext
+  const { vehicles, fetchAllVehicles } = vehiclecontext;
+  const { addNewFeedback } = feedbackcontext;
+  const { getCustomer, GetCustomerData } = customercontext;
 
   useEffect(() => {
     if (localStorage.getItem("customerToken")) {
       GetCustomerData();
       fetchAllVehicles();
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);
@@ -43,7 +46,6 @@ const Contact_Us_Customer = () => {
     vehicles.map((item) => {
       if (item.plateNumber === event.target.value) {
         setNewFeedback({...newFeedback, vehicle: item._id})
-        // alert(item._id);
       }
     });
   };
@@ -55,6 +57,14 @@ const Contact_Us_Customer = () => {
   const handleContactUs = (e) => {
     e.preventDefault();
     addNewFeedback(getCustomer._id, newFeedback.vehicle, newFeedback.rating, newFeedback.message)
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Feedback Send Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     setNewFeedback({
       vehicle: "",
       rating: "",
@@ -111,7 +121,7 @@ const Contact_Us_Customer = () => {
                   Select the Car Plate No.
                 </option>
                 {vehicles.map((element) => {
-                  return <option>{element.plateNumber}</option>;
+                  return <option key={element._id}>{element.plateNumber}</option>;
                 })}
               </select>
             </div>
@@ -128,7 +138,6 @@ const Contact_Us_Customer = () => {
                 size="100px"
                 style={{ marginTop: "22px" }}
               />
-              {/* </FormControl> */}
             </div>
             <div className="Name_Field">
               <h4 className="message_label">Message</h4>

@@ -1,9 +1,11 @@
 const Employee = require("../models/employee");
 const jwt = require("jsonwebtoken");
+const BackendLogController = require("./BackendLogController");
 
 const JWT_Secret = "Iamaboy.";
 
 const AddNewEmployee = async (req, res) => {
+  let Success = false;
   try {
     const newEmployee = await Employee.create({
       name: req.body.name,
@@ -17,15 +19,22 @@ const AddNewEmployee = async (req, res) => {
     const data = {
       employee: {
         id: newEmployee.id,
+        role: "Employee",
       },
     };
 
     const employeeToken = jwt.sign(data, JWT_Secret);
-
-    res.json({ newEmployee, employeeToken });
+    Success = true;
+    res.json({ Success, newEmployee, employeeToken });
   } catch (error) {
+    Success = false;
     console.log(error.message);
-    res.status(500).send("Internal Server Error.");
+    BackendLogController.AddNewBackEndException(
+      "EmployeeController.js",
+      "AddNewEmployee",
+      error.message
+    );
+    res.status(500).json({ Success, message: "Internal Server Error." });
   }
 };
 
@@ -54,8 +63,14 @@ const EditEmployee = async (req, res) => {
 
     const presentEmployee = await Employee.findById(employeeId);
     if (presentEmployee) {
-      const item = await Employee.findByIdAndUpdate(
-        employeeId,
+      // const item = await Employee.findByIdAndUpdate(
+      //   employeeId,
+      //   { $set: updatedData },
+      //   { new: true }
+      // );
+
+      const item = await Employee.findOneAndUpdate(
+        { _id: employeeId },
         { $set: updatedData },
         { new: true }
       );
@@ -66,6 +81,27 @@ const EditEmployee = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
+    BackendLogController.AddNewBackEndException(
+      "EmployeeController.js",
+      "EditEmployee",
+      error.message
+    );
+    res.status(500).send("Internal Server Error.");
+  }
+};
+
+const GetEmployeeData = async (req, res) => {
+  try {
+    var employeeId = req.user.id;
+    const presentEmployee = await Employee.findById(employeeId).select("-password");
+    res.json(presentEmployee);
+  } catch (error) {
+    console.log(error.message);
+    BackendLogController.AddNewBackEndException(
+      "EmployeeController.js",
+      "GetEmployeeData",
+      error.message
+    );
     res.status(500).send("Internal Server Error.");
   }
 };
@@ -73,12 +109,17 @@ const EditEmployee = async (req, res) => {
 const GetAllEmployees = async (req, res) => {
   try {
     var employeesData = await Employee.find();
-    employeesData = employeesData.filter((emp)=>{
-      return emp.role != 'Admin' && emp.active == true
-    })
+    employeesData = employeesData.filter((emp) => {
+      return emp.role != "Admin" && emp.active == true;
+    });
     res.send(employeesData);
   } catch (error) {
     console.log(error.message);
+    BackendLogController.AddNewBackEndException(
+      "EmployeeController.js",
+      "GetAllEmployees",
+      error.message
+    );
     res.status(500).send("Internal Server Error.");
   }
 };
@@ -105,15 +146,19 @@ const RemoveEmployee = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
+    BackendLogController.AddNewBackEndException(
+      "EmployeeController.js",
+      "RemoveEmployee",
+      error.message
+    );
     res.status(500).send("Internal Server Error.");
   }
-}
-
-
+};
 
 module.exports = {
-    AddNewEmployee,
-    EditEmployee,
-    GetAllEmployees,
-    RemoveEmployee
-}
+  AddNewEmployee,
+  EditEmployee,
+  GetAllEmployees,
+  RemoveEmployee,
+  GetEmployeeData
+};

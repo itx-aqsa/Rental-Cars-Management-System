@@ -1,10 +1,13 @@
 import react, { useState, useEffect, useContext } from "react";
-import { BrandContext } from "./AllContexts";
+import { BrandContext, FrontendLogContext } from "./AllContexts";
 
 const BrandContextState = (props) => {
   const brandsInitials = [];
 
   const [brands, setBrands] = useState(brandsInitials);
+
+  const frontendlogcontext = useContext(FrontendLogContext)
+  const { addNewFrontEndException } = frontendlogcontext
 
   const fetchAllBrands = async () => {
     try {
@@ -21,6 +24,7 @@ const BrandContextState = (props) => {
       const allBrands = await response.json();
       setBrands(allBrands);
     } catch (error) {
+      addNewFrontEndException("BrandContextState.js", "Brands_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -49,6 +53,7 @@ const BrandContextState = (props) => {
 
       console.log(brands);
     } catch (error) {
+      addNewFrontEndException("BrandContextState.js", "Add_Brand_Admin_Screen", error.message)
       console.error("Error adding the data:", error);
     }
   };
@@ -75,6 +80,7 @@ const BrandContextState = (props) => {
 
       setBrands(newBrands);
     } catch (error) {
+      addNewFrontEndException("BrandContextState.js", "Brands_Admin_Screen", error.message)
       console.error("Error removing the data:", error);
     }
   };
@@ -109,6 +115,7 @@ const BrandContextState = (props) => {
       setBrands(newBrands);
     } catch (error) {
       // alert("Error editing the item.");
+      addNewFrontEndException("BrandContextState.js", "Brands_Admin_Screen", error.message)
       console.log("Error editing the employee: ", error);
     }
   };

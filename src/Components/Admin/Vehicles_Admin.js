@@ -12,12 +12,15 @@ import Fab from "@mui/material/Fab";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useNavigate } from 'react-router-dom';
-import { VehicleContext } from '../../Context/AllContexts';
+import { VehicleContext, AlertContext } from '../../Context/AllContexts';
 
 const Vehicles_Admin = () => {
     const navigate = useNavigate();
 
     const Context = useContext(VehicleContext)
+    const alertcontext = useContext(AlertContext)
+
+    const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
     const { vehicles, setVehicles, fetchAllVehicles, removeVehicle, vehicleToBeEdited, setVehicleToBeEdited } = Context
 
 
@@ -25,7 +28,14 @@ const Vehicles_Admin = () => {
       if (localStorage.getItem("token")) {
         fetchAllVehicles()
       } else {
-        alert("You have to Logged In into the system.");
+        setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
         navigate("/Login");
       }
     }, []);
@@ -53,7 +63,14 @@ const Vehicles_Admin = () => {
 
       const RemovePresentVehicle = (id) => {
         // alert(id)
-        alert("Deleted Successfully!")
+        setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Vehicle Deleted Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
         removeVehicle(id)
       }
 
@@ -123,7 +140,8 @@ const Vehicles_Admin = () => {
                               image: row.image,
                               description: row.description,
                               status: row.status,
-                              discount: row.discount
+                              discount: row.discount,
+                              pricePerDay: row.pricePerDay
                             })
                             console.log(vehicleToBeEdited)
                             navigate('/admin/editVehicle')

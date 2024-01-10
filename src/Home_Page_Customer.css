@@ -28,6 +28,7 @@
         color: black;
         margin-left: 40px;
         font-size: 18px;
+        transition: all 0.2s ease-in-out;
     }
 
     .navbar_item:hover{
@@ -89,7 +90,6 @@
     }
 
     .Section2_Vehicles_Portion{
-        /* border: 2px solid black; */
         padding-left: 5%;
         display: flex;
         flex-wrap: wrap;
@@ -106,7 +106,6 @@
 
     .Card_Content_FirstLine{
         display: flex;
-        /* border: 1px solid green; */
         height: 55px;
     }
 
@@ -182,6 +181,7 @@
         color: black;
         margin-left: 30px;
         font-size: 18px;
+        transition: all 0.2s ease-in-out;
     }
 
     .navbar_item:hover{
@@ -339,6 +339,7 @@
         color: black;
         margin-left: 18px;
         font-size: 16px;
+        transition: all 0.2s ease-in-out;
     }
 
     .navbar_item:hover{
@@ -496,6 +497,7 @@
         margin-left: 18px;
         font-size: 16px;
         display: none;
+        transition: all 0.2s ease-in-out;
     }
 
     .navbar_item:hover{
@@ -661,6 +663,7 @@
         margin-left: 18px;
         font-size: 16px;
         display: none;
+        transition: all 0.2s ease-in-out;
     }
 
     .navbar_item:hover{

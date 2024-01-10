@@ -2,11 +2,14 @@ import React, { useState, useEffect, useContext }  from 'react'
 import Button from "@mui/material/Button";
 import '../../Add_Brand.css'
 import { useNavigate } from 'react-router-dom';
-import { BrandContext } from '../../Context/AllContexts'
+import { BrandContext, AlertContext } from '../../Context/AllContexts'
 
 const Add_Brand_Admin = () => {
   const navigate = useNavigate();
   const Context = useContext(BrandContext)
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { brands, addNewBrand } = Context;
 
   const [newBrand, setNewBrand] = useState({
@@ -19,7 +22,14 @@ const Add_Brand_Admin = () => {
       
     }
     else{
-      alert("You have to Logged In into the system.")
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate('/Login')
     }
   }, [])
@@ -27,7 +37,14 @@ const Add_Brand_Admin = () => {
   const AddNewBrand = (e) => {
     e.preventDefault();
     addNewBrand(newBrand.name, newBrand.description)
-    alert("Brand Added Successfully!")
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Brand Added Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     navigate('/admin/brands')
   }
 

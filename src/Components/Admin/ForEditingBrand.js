@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import Modal from "react-modal";
-import { BrandContext } from "../../Context/AllContexts";
+import { BrandContext, AlertContext } from "../../Context/AllContexts";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -24,7 +24,9 @@ const ForEditingBrandModal = (props) => {
   const ref = useRef();
   const closeRef = useRef();
   const Context = useContext(BrandContext);
+  const alertcontext = useContext(AlertContext)
 
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { editBrand } = Context;
 
   const [updatedBrand, setUpdatedBrand] = useState({
@@ -62,7 +64,14 @@ const ForEditingBrandModal = (props) => {
     updatedBrand.name,
     updatedBrand.description,
     )
-    alert("Edited Successfully!");
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Brand Updated Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     closeRef.current.click();
   };
 

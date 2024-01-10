@@ -2,12 +2,15 @@ import React, { useState, useEffect, useContext } from 'react'
 import Button from '@mui/material/Button'
 import '../../edit_customer_profile.css'
 import { useNavigate } from 'react-router-dom'
-import { CustomerContext } from '../../Context/AllContexts'
+import { CustomerContext, AlertContext } from '../../Context/AllContexts'
 
 const Edit_Customer_Profile_Employee = () => {
   const navigate = useNavigate();
 
   const Context = useContext(CustomerContext)
+  const alertcontext = useContext(AlertContext)
+
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
   const { customers, setCustomers, fetchAllCustomers, customerToBeEdited, setCustomerToBeEdited, editCustomer } = Context
 
   const [newCustomer, setNewCustomer] = useState({
@@ -23,7 +26,14 @@ const Edit_Customer_Profile_Employee = () => {
       fetchAllCustomers();
     }
     else{
-      alert("You have to Logged In into the system.")
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate('/Login')
     }
 }, [])
@@ -32,7 +42,14 @@ const Edit_Customer_Profile_Employee = () => {
   const EditPresentCustomer = (e) => {
     e.preventDefault();
     editCustomer(customerToBeEdited.id, newCustomer.name, newCustomer.password, newCustomer.contact, newCustomer.username, newCustomer.address)
-    alert("Customer Edited Successfully!");
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Customer Updated Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     navigate("/employee/customers")
   }
 

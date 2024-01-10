@@ -1,8 +1,10 @@
 const express = require("express");
 const Feedback = require("../models/feedback");
+const BackendLogController = require("./BackendLogController")
 
 const AddNewFeedback = async (req, res) => {
   try {
+    let Success = false
     const newFeedback = await Feedback.create({
       customer: req.body.customer,
       vehicle: req.body.vehicle,
@@ -10,10 +12,13 @@ const AddNewFeedback = async (req, res) => {
       message: req.body.message,
     });
 
-    res.send(newFeedback);
+    Success = true
+    res.json({Success, newFeedback});
   } catch (error) {
     console.log(error.message);
-    res.status(500).send("Internal Server Error.");
+    BackendLogController.AddNewBackEndException("FeedbackController.js", "AddNewFeedback", error.message)
+    Success = false
+    res.status(500).json({Success, error: "Internal Server Error."});
   }
 };
 
@@ -29,6 +34,7 @@ const GetAllFeedbacks = async (req, res) => {
     res.send(activeFeedbacks);
   } catch (error) {
     console.log(error.message);
+    BackendLogController.AddNewBackEndException("FeedbackController.js", "GetAllFeedbacks", error.message)
     res.status(500).send("Internal Server Error.");
   }
 };
@@ -50,6 +56,7 @@ const RemoveFeedback = async (req, res) => {
         }
     } catch (error) {
         console.log(error.message);
+        BackendLogController.AddNewBackEndException("FeedbackController.js", "RemoveFeedback", error.message)
         res.status(500).send("Internal Server Error.");
     }
 }

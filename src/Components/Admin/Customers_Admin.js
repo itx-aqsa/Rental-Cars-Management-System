@@ -11,20 +11,30 @@ import Paper from "@mui/material/Paper";
 import Fab from "@mui/material/Fab";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { CustomerContext } from "../../Context/AllContexts";
+import { CustomerContext, AlertContext } from "../../Context/AllContexts";
 import { useNavigate } from "react-router-dom";
 
 const Customers_Admin = () => {
   const navigate = useNavigate()
 
   const Context = useContext(CustomerContext);
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { customers, setCustomers, fetchAllCustomers } = Context;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetchAllCustomers();
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);

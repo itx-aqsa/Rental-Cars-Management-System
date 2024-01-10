@@ -14,7 +14,7 @@ import { useRef, useState, useEffect, useContext } from "react";
 import ImageList from "@mui/material/ImageList";
 import ImageListItem from "@mui/material/ImageListItem";
 import DeleteIcon from "@mui/icons-material/Delete";
-import { VehicleContext, BrandContext } from "../../Context/AllContexts";
+import { VehicleContext, BrandContext, AlertContext } from "../../Context/AllContexts";
 
 const Edit_Vehicle_Admin = () => {
   const navigate = useNavigate();
@@ -22,6 +22,9 @@ const Edit_Vehicle_Admin = () => {
 
   const Context = useContext(VehicleContext)
   const brandsContext = useContext(BrandContext)
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { brands, fetchAllBrands } = brandsContext
   const { vehicles, addNewVehicle, vehicleToBeEdited, setVehicleToBeEdited, editVehicle } = Context
 
@@ -71,6 +74,7 @@ const Edit_Vehicle_Admin = () => {
     year: vehicleToBeEdited.year,
     plateNumber: vehicleToBeEdited.plateNumber,
     image: vehicleToBeEdited.image,
+    pricePerDay: vehicleToBeEdited.pricePerDay,
     description: vehicleToBeEdited.description,
     status: vehicleToBeEdited.status,
     discount: vehicleToBeEdited.discount
@@ -81,7 +85,14 @@ const Edit_Vehicle_Admin = () => {
       fetchAllBrands()
       setImageLinks(vehicleToBeEdited.image)
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);
@@ -97,7 +108,7 @@ const Edit_Vehicle_Admin = () => {
   };
 
   const dropdownFunctionStatus = (event) => {
-    alert(event.target.value)
+    // alert(event.target.value)
     setNewVehicle({...newVehicle, status: event.target.value})
   }
 
@@ -146,9 +157,17 @@ const Edit_Vehicle_Admin = () => {
       newVehicle.description,
       imageLinks,
       newVehicle.status,
-      newVehicle.discount
+      newVehicle.discount,
+      newVehicle.pricePerDay
     )
-    alert("Vehicle Edited Successfully!")
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Vehicle Updated Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     navigate('/admin/vehicles')
   }
 
@@ -279,6 +298,18 @@ const Edit_Vehicle_Admin = () => {
             name="plateNumber"
             required
             minLength={4}
+          />
+        </div>
+        <div className="Name_Field">
+          <h4 className="pricePerDayeditvehicle_label">Price Per Day</h4>
+          <input
+            className="name_input"
+            type="number"
+            placeholder="Enter the Price For One Day"
+            required
+            name="pricePerDay"
+            value={newVehicle.pricePerDay}
+            onChange={OnChange}
           />
         </div>
         <div className="NameeditVehicle_Field">

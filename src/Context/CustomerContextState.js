@@ -1,9 +1,12 @@
-import react, { useState, useEffect } from "react";
-import { CustomerContext } from "./AllContexts";
+import react, { useState, useEffect, useContext } from "react";
+import { CustomerContext, FrontendLogContext } from "./AllContexts";
 
 const CustomerContextState = (props) => {
   const customersInitial = [];
   const [customers, setCustomers] = useState(customersInitial);
+
+  const frontendlogcontext = useContext(FrontendLogContext)
+  const { addNewFrontEndException } = frontendlogcontext
 
   const [customerToBeEdited, setCustomerToBeEdited] = useState({
     id: "",
@@ -32,6 +35,7 @@ const CustomerContextState = (props) => {
       setCustomers(allCustomers);
       //   console.log(customers)
     } catch (error) {
+      addNewFrontEndException("CustomerContextState.js", "Customers_Admin_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -82,6 +86,7 @@ const CustomerContextState = (props) => {
       setCustomers(newCustomers);
     } catch (error) {
       // alert("Error editing the item.");
+      addNewFrontEndException("CustomerContextState.js", "Edit_Customer_Employee_Screen", error.message)
       console.log("Error editing the customer: ", error);
     }
   };
@@ -102,6 +107,7 @@ const CustomerContextState = (props) => {
       setGetCustomer(thisCustomer);
       // console.log(thisCustomer)
     } catch (error) {
+      addNewFrontEndException("CustomerContextState.js", "Customers_Employee_Screen", error.message)
       console.log("Error getting the customer data: ", error);
     }
   };

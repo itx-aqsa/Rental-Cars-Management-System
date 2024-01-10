@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../Signup.css";
 import Button from '@mui/material/Button';
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { AlertContext } from "../Context/AllContexts";
+import AlertBar from "./Alert";
 
 const SignUp = () => {
   const navigate = useNavigate();
+
+  const alertcontext = useContext(AlertContext);
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext;
 
   const [credentials, setCredentials] = useState(
     {
@@ -47,21 +52,44 @@ const SignUp = () => {
       console.log(json);
 
       if(json.Success){
-        alert("Account Created Successfully!")
-        navigate('/Login')
+        setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Account Created Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
+        localStorage.setItem('customerToken', json.customerToken)
+        navigate('/')
       }
       else{
-        alert("Invalid Details!")
+        setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "Invalid Details!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       }
     }
     else{
-      alert("Please use the same password as password and confirm password.")
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "Please use the same password as password and confirm password.!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     }
     
   }
 
   return (
     <div>
+      {showAlert&&<AlertBar />}
       <h1 className="Main_Heading">Rental Cars</h1>
       <div className="Container">
         <h2 className="Container_Heading">Create New Account</h2>

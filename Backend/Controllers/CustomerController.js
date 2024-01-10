@@ -1,12 +1,14 @@
 const Customer = require("../models/customer");
 const Employee = require("../models/employee");
 var jwt = require("jsonwebtoken");
+const BackendLogController = require("./BackendLogController")
 
 const JWT_Secret = "Iamaboy.";
 
 
 const AddNewCustomer = async (req, res) => {
     try {
+      let Success = false;
       const newCustomer = await Customer.create({
         name: req.body.name,
         email: req.body.email,
@@ -19,20 +21,25 @@ const AddNewCustomer = async (req, res) => {
       const data = {
         customer: {
           id: newCustomer.id,
+          role: "Customer",
         },
       };
   
       var customerToken = jwt.sign(data, JWT_Secret);
   
-      res.json({ newCustomer, customerToken });
+      Success = true
+      res.json({ Success, customerToken });
     } catch (error) {
       console.log(error.message);
-      res.status(500).send("Internal Server Error.");
+      BackendLogController.AddNewBackEndException("CustomerController.js", "AddNewCustomer", error.message)
+      Success = false
+      res.status(500).json({Success, message: "Internal Server Error."});
     }
   }
   
   const LoginCustomer = async (req, res) => {
     try {
+      let Success = false
       if (
         req.body.email == "zaeemahmad2603@gmail.com" &&
         req.body.password == "713000"
@@ -41,10 +48,12 @@ const AddNewCustomer = async (req, res) => {
         const data = {
           admin: {
             id: foundedAdmin.id,
+            role: "Admin"
           },
         };
         const adminToken = jwt.sign(data, JWT_Secret);
-        res.json({ foundedAdmin, adminToken });
+        Success = true
+        res.json({ Success, role: "Admin", adminToken });
       } else {
         const foundedEmployee = await Employee.findOne({ email: req.body.email });
         if (foundedEmployee) {
@@ -54,12 +63,15 @@ const AddNewCustomer = async (req, res) => {
             const data = {
               employee: {
                 id: foundedEmployee.id,
+                role: "Employee"
               },
             };
             const employeeToken = jwt.sign(data, JWT_Secret);
-            res.json({ foundedEmployee, employeeToken });
+            Success = true
+            res.json({ Success, role: "Employee", employeeToken });
           } else {
-            res.json({ Failure: "Please Enter the right password." });
+            Success = false
+            res.json({ Success, Failure: "Please Enter the right password." });
           }
         } else {
           const foundedCustomer = await Customer.findOne({
@@ -72,22 +84,28 @@ const AddNewCustomer = async (req, res) => {
               const data = {
                 customer: {
                   id: foundedCustomer.id,
+                  role: "Customer"
                 },
               };
               const customerToken = jwt.sign(data, JWT_Secret);
-              res.json({ foundedCustomer, customerToken });
+              Success = true
+              res.json({ Success, role: "Customer", customerToken });
             } else {
-              res.json({ Failure: "Please Enter the right password." });
+              Success = false
+              res.json({ Success, Failure: "Please Enter the right password." });
             }
           } else {
             res.status(400);
-            res.json({ error: "User for this email is not present." });
+            Success = false
+            res.json({ Success, error: "User for this email is not present." });
           }
         }
       }
     } catch (error) {
       console.log(error.message);
-      res.status(500).send("Internal Server Error");
+      BackendLogController.AddNewBackEndException("CustomerController.js", "LoginCustomer", error.message)
+      Success = false
+      res.status(500).json({Success, message: "Internal Server Error."});
     }
   }
   
@@ -98,6 +116,7 @@ const AddNewCustomer = async (req, res) => {
       res.json(presentCustomer);
     } catch (error) {
       console.log(error.message);
+      BackendLogController.AddNewBackEndException("CustomerController.js", "GetCustomerData", error.message)
       res.status(500).send("Internal Server Error");
     }
   }
@@ -125,11 +144,19 @@ const AddNewCustomer = async (req, res) => {
       }
   
       if (presentCustomer) {
-        const item = await Customer.findByIdAndUpdate(
-          userId,
+        // const item = await Customer.findByIdAndUpdate(
+        //   userId,
+        //   { $set: updatedData },
+        //   { new: true }
+        // );
+
+        const item = await Customer.findOneAndUpdate(
+          { _id: userId },
           { $set: updatedData },
           { new: true }
         );
+
+
         res.send(item);
         // res.send(updatedData)
       } else {
@@ -137,6 +164,7 @@ const AddNewCustomer = async (req, res) => {
       }
     } catch (error) {
       console.log(error.message);
+      BackendLogController.AddNewBackEndException("CustomerController.js", "EditCustomer", error.message)
       res.status(500).send("Internal Server Error");
     }
   }
@@ -150,6 +178,7 @@ const AddNewCustomer = async (req, res) => {
         res.send(customersData);
       } catch (error) {
         console.log(error.message);
+        BackendLogController.AddNewBackEndException("CustomerController.js", "GetAllCustomers", error.message)
         res.status(500).send("Internal Server Error.");
       }
   }

@@ -18,7 +18,7 @@ import ImageListItemBar from "@mui/material/ImageListItemBar";
 import firstimage from "../../Images/home_page_car.png";
 // import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { VehicleContext, BrandContext } from "../../Context/AllContexts";
+import { VehicleContext, BrandContext, AlertContext } from "../../Context/AllContexts";
 
 const VisuallyHiddenInput = styled("input")({
   clip: "rect(0 0 0 0)",
@@ -76,6 +76,9 @@ const Add_Vehicle_Admin = () => {
 
   const Context = useContext(VehicleContext)
   const brandsContext = useContext(BrandContext)
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { brands, fetchAllBrands } = brandsContext
   const { vehicles, addNewVehicle } = Context
 
@@ -83,6 +86,7 @@ const Add_Vehicle_Admin = () => {
     brand: "",
     year: "",
     plateNumber: "",
+    pricePerDay: 0,
     image: [],
     description: "",
   })
@@ -91,7 +95,14 @@ const Add_Vehicle_Admin = () => {
     if (localStorage.getItem("token")) {
       fetchAllBrands()
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);
@@ -150,8 +161,15 @@ const Add_Vehicle_Admin = () => {
     e.preventDefault()
     setNewVehicle({...newVehicle, image: imageLinks})
     console.log(newVehicle)
-    addNewVehicle(newVehicle.brand, newVehicle.year, newVehicle.plateNumber, imageLinks, newVehicle.description)
-    alert("Vehicle Added Successfully!")
+    addNewVehicle(newVehicle.brand, newVehicle.year, newVehicle.plateNumber, imageLinks, newVehicle.description, newVehicle.pricePerDay)
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Vehicle Added Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     navigate('/admin/vehicles')
   }
 
@@ -284,6 +302,18 @@ const Add_Vehicle_Admin = () => {
             value={newVehicle.plateNumber}
             onChange={OnChange}
             minLength={4}
+          />
+        </div>
+        <div className="Name_Field">
+          <h4 className="pricePerDayaddvehicle_label">Price Per Day</h4>
+          <input
+            className="name_input"
+            type="number"
+            placeholder="Enter the Price For One Day"
+            required
+            name="pricePerDay"
+            value={newVehicle.pricePerDay}
+            onChange={OnChange}
           />
         </div>
         <div className="Name_Field">

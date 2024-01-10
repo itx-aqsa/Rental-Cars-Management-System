@@ -26,7 +26,9 @@ import BookingsIcon from "@mui/icons-material/EventAvailable";
 import FeedbacksIcon from "@mui/icons-material/Feedback";
 import LogoutIcon from "@mui/icons-material/ExitToApp";
 import { useNavigate, Outlet } from 'react-router-dom'
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
+import { AlertContext } from "../../Context/AllContexts";
+import AlertBar from "../Alert";
 
 const drawerWidth = 240;
 
@@ -99,6 +101,9 @@ const Home_Page_Admin = () => {
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
 
+  const alertcontext = useContext(AlertContext)
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -136,12 +141,23 @@ const Home_Page_Admin = () => {
   }
 
   const handleLogOutClick = () => {
-    
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Logged Out Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
+    localStorage.removeItem('token')
+    navigate('/Login')
   }
 
   
 
   return (
+    <div>
+    {showAlert&&<AlertBar />}
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
@@ -387,6 +403,7 @@ const Home_Page_Admin = () => {
         <Outlet />
       </Box>
     </Box>
+    </div>
   );
 };
 

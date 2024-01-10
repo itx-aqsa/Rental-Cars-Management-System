@@ -30,7 +30,7 @@ const Home_Section2_Customer = () => {
       <div className="Section2_Vehicles_Portion">
         {vehicles.length!=0?vehicles.map((car) => {
           return (
-            <Card className="One_Card">
+            <Card className="One_Card" key={car._id}>
               <div className="card_portion">
                 <img
                   src={car.image[0]}
@@ -72,7 +72,6 @@ const Home_Section2_Customer = () => {
                       fontSize: "16px",
                     }}
                     onClick={()=>{
-                      // alert("clicked!")
                       setVehicleForOneDetailedPage({
                         id: car._id,
                         brand: car.brand,
@@ -94,170 +93,6 @@ const Home_Section2_Customer = () => {
             </Card>
           );
         }): ""}
-        {/* <Card className="One_Card">
-          <div className="card_portion">
-            <img src={Image} alt="Image is not Found." className="Card_Image" />
-            <div className="Card_Content_FirstLine">
-              <h2 className="vehicle_Brand">Toyoto Model</h2>
-              <h4 className="vehicle_year">2022</h4>
-            </div>
-            <div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Price Per Day : </h4>
-                <h4 className="vehicle_price">$200</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Discount On Car : </h4>
-                <h4 className="vehicle_price">$0</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Status : </h4>
-                <h4 className="vehicle_price">Available</h4>
-              </div>
-            </div>
-          </div>
-          <CardActions>
-            <div className="Card_Button">
-              <Button
-                variant=""
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  paddingLeft: "16%",
-                  paddingRight: "16%",
-                  fontSize: "16px",
-                }}
-              >
-                Read More
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-        <Card className="One_Card">
-          <div className="card_portion">
-            <img src={Image} alt="Image is not Found." className="Card_Image" />
-            <div className="Card_Content_FirstLine">
-              <h2 className="vehicle_Brand">Toyoto Model</h2>
-              <h4 className="vehicle_year">2022</h4>
-            </div>
-            <div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Price Per Day : </h4>
-                <h4 className="vehicle_price">$200</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Discount On Car : </h4>
-                <h4 className="vehicle_price">$0</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Status : </h4>
-                <h4 className="vehicle_price">Available</h4>
-              </div>
-            </div>
-          </div>
-          <CardActions>
-            <div className="Card_Button">
-              <Button
-                variant=""
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  paddingLeft: "16%",
-                  paddingRight: "16%",
-                  fontSize: "16px",
-                }}
-              >
-                Read More
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-        <Card className="One_Card">
-          <div className="card_portion">
-            <img src={Image} alt="Image is not Found." className="Card_Image" />
-            <div className="Card_Content_FirstLine">
-              <h2 className="vehicle_Brand">Toyoto Model</h2>
-              <h4 className="vehicle_year">2022</h4>
-            </div>
-            <div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Price Per Day : </h4>
-                <h4 className="vehicle_price">$200</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Discount On Car : </h4>
-                <h4 className="vehicle_price">$0</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Status : </h4>
-                <h4 className="vehicle_price">Available</h4>
-              </div>
-            </div>
-          </div>
-          <CardActions>
-            <div className="Card_Button">
-              <Button
-                variant=""
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  paddingLeft: "16%",
-                  paddingRight: "16%",
-                  fontSize: "16px",
-                }}
-              >
-                Read More
-              </Button>
-            </div>
-          </CardActions>
-        </Card>
-        <Card className="One_Card">
-          <div className="card_portion">
-            <img src={Image} alt="Image is not Found." className="Card_Image" />
-            <div className="Card_Content_FirstLine">
-              <h2 className="vehicle_Brand">Toyoto Model</h2>
-              <h4 className="vehicle_year">2022</h4>
-            </div>
-            <div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Price Per Day : </h4>
-                <h4 className="vehicle_price">$200</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Discount On Car : </h4>
-                <h4 className="vehicle_price">$0</h4>
-              </div>
-              <div className="Card_Content_SecondLine">
-                <h4 className="vehicle_price_per_day">Status : </h4>
-                <h4 className="vehicle_price">Available</h4>
-              </div>
-            </div>
-          </div>
-          <CardActions>
-            <div className="Card_Button">
-              <Button
-                variant=""
-                style={{
-                  backgroundColor: "red",
-                  color: "white",
-                  fontWeight: "bold",
-                  textTransform: "uppercase",
-                  paddingLeft: "16%",
-                  paddingRight: "16%",
-                  fontSize: "16px",
-                }}
-              >
-                Read More
-              </Button>
-            </div>
-          </CardActions>
-        </Card> */}
       </div>
     </div>
   );

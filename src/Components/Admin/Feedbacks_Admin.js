@@ -11,20 +11,30 @@ import Paper from "@mui/material/Paper";
 import Box from '@mui/material/Box';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
-import { FeedbackContext } from "../../Context/AllContexts";
+import { FeedbackContext, AlertContext } from "../../Context/AllContexts";
 import { useNavigate } from "react-router-dom";
 
 const Feedbacks_Admin = () => {
   const navigate = useNavigate();
 
   const Context = useContext(FeedbackContext);
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { feedbacks, setFeedbacks, fetchAllFeedbacks } = Context;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetchAllFeedbacks();
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);

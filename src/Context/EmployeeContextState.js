@@ -1,10 +1,14 @@
-import react, { useState, useEffect } from "react";
-import { EmployeeContext } from "./AllContexts";
+import react, { useState, useEffect, useContext } from "react";
+import { EmployeeContext, FrontendLogContext } from "./AllContexts";
 
 const EmployeeContextState = (props) => {
   const employeesInitials = [];
 
   const [employees, setEmployees] = useState(employeesInitials);
+  const [getEmployee, setGetEmployee] = useState({})
+
+  const frontendlogcontext = useContext(FrontendLogContext)
+  const { addNewFrontEndException } = frontendlogcontext
 
   const fetchAllEmployees = async () => {
     try {
@@ -21,6 +25,7 @@ const EmployeeContextState = (props) => {
       const allEmployees = await response.json();
       setEmployees(allEmployees);
     } catch (error) {
+      addNewFrontEndException("EmployeeContextState.js", "Employees_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -55,11 +60,15 @@ const EmployeeContextState = (props) => {
 
       const json = await response.json();
       console.log(json);
-
+      
+      
       setEmployees(employees.concat(json));
-
       console.log(employees);
+
+      // localStorage.setItem('Success', json.Success)
+    
     } catch (error) {
+      addNewFrontEndException("EmployeeContextState.js", "Add_Employee_Admin_Screen", error.message)
       console.error("Error adding the data:", error);
     }
   };
@@ -86,6 +95,7 @@ const EmployeeContextState = (props) => {
 
       setEmployees(newEmployees);
     } catch (error) {
+      addNewFrontEndException("EmployeeContextState.js", "Employees_Admin_Screen", error.message)
       console.error("Error removing the data:", error);
     }
   };
@@ -140,13 +150,35 @@ const EmployeeContextState = (props) => {
 
     } catch (error) {
       // alert("Error editing the item.");
+      addNewFrontEndException("EmployeeContextState.js", "Employees_Admin_Screen", error.message)
       console.log("Error editing the employee: ", error);
+    }
+  };
+
+  const GetEmployeeData = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:5000/api/employees/getEmployeeData",
+        {
+          method: "GET",
+          headers: {
+            "auth-token": localStorage.getItem("token"),
+          },
+        }
+      );
+
+      const thisEmployee = await response.json();
+      setGetEmployee(thisEmployee);
+      // console.log(thisEmployee)
+    } catch (error) {
+      addNewFrontEndException("CustomerContextState.js", "Customers_Employee_Screen", error.message)
+      console.log("Error getting the customer data: ", error);
     }
   };
 
   return (
     <EmployeeContext.Provider
-      value={{ employees, fetchAllEmployees, addNewEmployee, removeEmployee, editEmployee }}
+      value={{ employees, fetchAllEmployees, addNewEmployee, removeEmployee, editEmployee, GetEmployeeData, getEmployee, setGetEmployee }}
     >
       {props.children}
     </EmployeeContext.Provider>

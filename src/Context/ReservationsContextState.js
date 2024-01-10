@@ -1,7 +1,11 @@
-import react, { useState, useEffect } from "react";
-import { ReservationContext } from "./AllContexts";
+import react, { useState, useEffect, useContext } from "react";
+import { ReservationContext, FrontendLogContext } from "./AllContexts";
 
 const ReservationContextState = (props) => {
+
+  const frontendlogcontext = useContext(FrontendLogContext)
+  const { addNewFrontEndException } = frontendlogcontext
+
   const confirmedReservationsInitial = [];
   const unConfirmedReservationsInitial = [];
   const [confirmedReservations, setConfirmedReservations] = useState(
@@ -26,6 +30,7 @@ const ReservationContextState = (props) => {
       const allConfirmedReservations = await response.json();
       setConfirmedReservations(allConfirmedReservations);
     } catch (error) {
+      addNewFrontEndException("ReservationContextState.js", "Reservations_Admin_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -45,6 +50,7 @@ const ReservationContextState = (props) => {
       const allUnConfirmedReservations = await response.json();
       setUnConfirmedReservations(allUnConfirmedReservations);
     } catch (error) {
+      addNewFrontEndException("ReservationContextState.js", "Reservations_Employee_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -71,6 +77,7 @@ const ReservationContextState = (props) => {
 
       setUnConfirmedReservations(newReservations);
     } catch (error) {
+      addNewFrontEndException("ReservationContextState.js", "Reservations_Employee_Screen", error.message)
       console.error("Error removing the data:", error);
     }
   };
@@ -97,6 +104,7 @@ const ReservationContextState = (props) => {
 
       setUnConfirmedReservations(newReservations);
     } catch (error) {
+      addNewFrontEndException("ReservationContextState.js", "Reservations_Employee_Screen", error.message)
       console.error("Error removing the data:", error);
     }
   };
@@ -142,6 +150,7 @@ const ReservationContextState = (props) => {
 
       console.log(unConfirmedReservations);
     } catch (error) {
+      addNewFrontEndException("ReservationContextState.js", "Add_Reservation_Customer_Screen", error.message)
       console.error("Error adding the data:", error);
     }
   };

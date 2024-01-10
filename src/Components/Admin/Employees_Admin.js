@@ -22,10 +22,10 @@ import IconButton from "@mui/material/IconButton";
 import CloseIcon from "@mui/icons-material/Close";
 import "../../edit_employee.css";
 import { useEffect } from "react";
-import { EmployeeContext } from "../../Context/AllContexts";
-
+import { EmployeeContext, AlertContext } from "../../Context/AllContexts";
 import Modal from "react-modal";
 import ForEditingModal from "./ForEditingModal";
+import Alert from "../Alert";
 
 const Employees_Admin = () => {
   const navigate = useNavigate();
@@ -45,15 +45,24 @@ const Employees_Admin = () => {
     if (localStorage.getItem("token")) {
       fetchAllEmployees();
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);
 
   const Context = useContext(EmployeeContext);
+  const alertcontext = useContext(AlertContext);
 
   const { employees, fetchAllEmployees, removeEmployee, editEmployee } =
     Context;
+    const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -108,7 +117,15 @@ const Employees_Admin = () => {
   };
 
   const RemoveEmployee = (id) => {
-    alert("Deleted Successfully!");
+    // alert("Deleted Successfully!");
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Employee Deleted Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     removeEmployee(id);
   };
 
@@ -134,6 +151,7 @@ const Employees_Admin = () => {
 
   return (
     <div>
+      {/* <Alert /> */}
       {/* <Edit_Employee_Admin /> */}
       {/* <React.Fragment>
         <Button

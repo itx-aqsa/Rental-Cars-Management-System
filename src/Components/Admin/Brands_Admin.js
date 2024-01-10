@@ -22,7 +22,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import Typography from "@mui/material/Typography";
 import "../../edit_brand.css";
 import ForEditingBrandModal from "./ForEditingBrand";
-import { BrandContext } from "../../Context/AllContexts";
+import { BrandContext, AlertContext } from "../../Context/AllContexts";
 
 const Brands_Admin = () => {
   const navigate = useNavigate();
@@ -35,13 +35,23 @@ const Brands_Admin = () => {
   })
 
   const Context = useContext(BrandContext);
+  const alertcontext = useContext(AlertContext)
+
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
   const { brands, fetchAllBrands, removeBrand } = Context;
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetchAllBrands();
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);
@@ -83,7 +93,14 @@ const Brands_Admin = () => {
   };
 
   const RemovePresentBrand = (id) => {
-    alert("Deleted Successfully!")
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Brand Deleted Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     removeBrand(id)
   }
 

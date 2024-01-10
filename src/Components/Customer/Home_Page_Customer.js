@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -38,10 +39,15 @@ import Help_Center_Customer from "./Help_Center_Customer";
 import About_Us_Customer from "./About_Us_Customer";
 import { Link, useLocation, useNavigate, Outlet } from "react-router-dom";
 import Customer_Main_Section from "./Customer_Main_Section";
+import { AlertContext } from "../../Context/AllContexts";
+import AlertBar from "../Alert";
 
 const Home_Page_Customer = () => {
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const alertcontext = useContext(AlertContext)
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
 
   const handleChange = (event) => {
     setAuth(event.target.checked);
@@ -180,6 +186,7 @@ const Home_Page_Customer = () => {
           />
         </FormGroup> */}
 
+      {showAlert&&<AlertBar />}
 
       <Customer_Main_Section />
       <Outlet />

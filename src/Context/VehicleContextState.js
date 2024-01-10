@@ -1,8 +1,11 @@
 import react, { useState, useEffect, useContext } from "react";
-import { VehicleContext } from "./AllContexts";
+import { VehicleContext, FrontendLogContext } from "./AllContexts";
 
 const VehicleContextState = (props) => {
   const vehiclesInitials = [];
+
+  const frontendlogcontext = useContext(FrontendLogContext)
+  const { addNewFrontEndException } = frontendlogcontext
 
   const [vehicles, setVehicles] = useState(vehiclesInitials);
   const [vehicleToBeEdited, setVehicleToBeEdited] = useState({
@@ -44,6 +47,7 @@ const VehicleContextState = (props) => {
       const allVehicles = await response.json();
       setVehicles(allVehicles);
     } catch (error) {
+      addNewFrontEndException("VehicleContextState.js", "Vehicles_Admin_Screen", error.message)
       console.error("Error fetching data:", error);
     }
   };
@@ -83,6 +87,7 @@ const VehicleContextState = (props) => {
 
       console.log(vehicles);
     } catch (error) {
+      addNewFrontEndException("VehicleContextState.js", "Add_Vehicle_Admin_Screen", error.message)
       console.error("Error adding the data:", error);
     }
   };
@@ -109,6 +114,7 @@ const VehicleContextState = (props) => {
 
       setVehicles(newVehicles);
     } catch (error) {
+      addNewFrontEndException("VehicleContextState.js", "Vehicles_Admin_Screen", error.message)
       console.error("Error removing the data:", error);
     }
   };
@@ -167,6 +173,7 @@ const VehicleContextState = (props) => {
       setVehicles(newVehicles);
     } catch (error) {
       // alert("Error editing the item.");
+      addNewFrontEndException("VehicleContextState.js", "Vehicles_Admin_Screen", error.message)
       console.log("Error editing the employee: ", error);
     }
   };
@@ -186,7 +193,8 @@ const VehicleContextState = (props) => {
       const json = await response.json();
       // setVehicles(allVehicles);
     } catch (error) {
-      console.log("Error editing the employee: ", error);
+      addNewFrontEndException("VehicleContextState.js", "Edit_Vehicle_Admin_Screen", error.message)
+      console.log("Error making the vehicle status to not available: ", error);
     }
   }
 

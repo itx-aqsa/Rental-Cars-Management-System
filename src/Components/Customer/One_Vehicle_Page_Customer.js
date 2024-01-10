@@ -8,19 +8,28 @@ import { useNavigate } from "react-router-dom";
 import ReactDOM from "react-dom";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
-import { VehicleContext } from "../../Context/AllContexts";
+import { VehicleContext, AlertContext } from "../../Context/AllContexts";
 
 const One_Vehicle_Page_Customer = () => {
   const navigate = useNavigate();
 
   const Context = useContext(VehicleContext);
+  const alertcontext = useContext(AlertContext);
+
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext;
   const { vehicleForOneDetailedPage, setVehicleForOneDetailedPage } = Context;
 
   useEffect(() => {
     if (localStorage.getItem("customerToken")) {
-      
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+      setAlertData({
+        severity: "error",
+        message: "You have to Logged In into the system!",
+      });
+      setTimeout(() => {
+        setShowAlert(false);
+      }, 3000);
       navigate("/Login");
     }
   }, []);
@@ -94,10 +103,16 @@ const One_Vehicle_Page_Customer = () => {
               fontSize: "16px",
             }}
             onClick={() => {
-              if(vehicleForOneDetailedPage.status === 'Not Available'){
-                alert("This car is not available this time.")
-              }
-              else{
+              if (vehicleForOneDetailedPage.status === "Not Available") {
+                setShowAlert(true);
+                setAlertData({
+                  severity: "error",
+                  message: "This car is not available this time!",
+                });
+                setTimeout(() => {
+                  setShowAlert(false);
+                }, 3000);
+              } else {
                 navigate("/customer/reservationvehicle");
               }
             }}

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Button from "@mui/material/Button";
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -8,15 +8,26 @@ import FormLabel from "@mui/material/FormLabel";
 import "../../Help_Center.css";
 import image from "../../Images/tow.jpeg";
 import { useNavigate } from "react-router-dom";
+import { AlertContext } from "../../Context/AllContexts";
 
 const Help_Center_Customer = () => {
   const navigate = useNavigate();
+
+  const alertcontext = useContext(AlertContext)
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
 
   useEffect(() => {
     if (localStorage.getItem("customerToken")) {
       
     } else {
-      alert("You have to Logged In into the system.");
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate("/Login");
     }
   }, []);

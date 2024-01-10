@@ -11,20 +11,30 @@ import Paper from "@mui/material/Paper";
 import Fab from "@mui/material/Fab";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ReservationContext } from '../../Context/AllContexts';
+import { ReservationContext, AlertContext } from '../../Context/AllContexts';
 import { useNavigate } from 'react-router-dom';
 
 const Bookings_Admin = () => {
     const navigate = useNavigate();
 
     const Context = useContext(ReservationContext)
+    const alertcontext = useContext(AlertContext)
+
+    const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
     const { confirmedReservations, setConfirmedReservations, fetchAllConfirmedReservations } = Context
 
     useEffect(() => {
       if (localStorage.getItem("token")) {
         fetchAllConfirmedReservations();
       } else {
-        alert("You have to Logged In into the system.");
+        setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
         navigate("/Login");
       }
     }, []);

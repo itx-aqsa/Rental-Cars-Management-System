@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext, useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
@@ -23,6 +24,8 @@ import LogoutIcon from "@mui/icons-material/ExitToApp";
 import ReportsIcon from "@mui/icons-material/Description";
 import UserProfileIcon from "@mui/icons-material/AccountCircle";
 import { useNavigate, Outlet } from 'react-router-dom'
+import { AlertContext, EmployeeContext } from "../../Context/AllContexts";
+import AlertBar from "../Alert";
 
 const drawerWidth = 240;
 
@@ -95,6 +98,17 @@ const Home_Page_Employee = () => {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
+
+  const employeecontext = useContext(EmployeeContext)
+  const alertcontext = useContext(AlertContext)
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
+  const { GetEmployeeData, getEmployee, setGetEmployee } = employeecontext
+
+  useEffect(() => {
+    // console.log("Good Morning")
+    GetEmployeeData();
+    // console.log(getEmployee.name)
+  }, [])
   
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -117,6 +131,14 @@ const Home_Page_Employee = () => {
   }
 
   const handleLogOutClick = () => {
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Logged Out Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     localStorage.removeItem('token')
     navigate('/Login')
   }
@@ -126,6 +148,8 @@ const Home_Page_Employee = () => {
   }
 
   return (
+    <div>
+    {showAlert&&<AlertBar />}
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
@@ -155,7 +179,7 @@ const Home_Page_Employee = () => {
             Rental Cars
           </Typography>
           <h3 className="Admin_Heading">Employee</h3>
-          <h3 className="Welcome_Heading">Welcome Mr. Zaeem </h3>
+          <h3 className="Welcome_Heading">Welcome {getEmployee.name} </h3>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -310,6 +334,7 @@ const Home_Page_Employee = () => {
         <Outlet />
       </Box>
     </Box>
+    </div>
   );
 };
 

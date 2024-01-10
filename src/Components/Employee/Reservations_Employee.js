@@ -11,13 +11,18 @@ import Paper from "@mui/material/Paper";
 import Fab from "@mui/material/Fab";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { ReservationContext } from '../../Context/AllContexts';
+import { ReservationContext, AlertContext } from '../../Context/AllContexts';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios'
 
 const Reservations_Employee = () => {
   const navigate = useNavigate();
+  const [msg, setMsg] = useState("");
 
   const Context = useContext(ReservationContext)
+  const alertcontext = useContext(AlertContext)
+
+  const { showAlert, setShowAlert, alertData, setAlertData } = alertcontext
   const { unConfirmedReservations, setUnConfirmedReservations, fetchAllUnconfirmedReservations, RemoveReservations, ConfirmReservations } = Context
   
   useEffect(() => {
@@ -25,7 +30,14 @@ const Reservations_Employee = () => {
       fetchAllUnconfirmedReservations();
     }
     else{
-      alert("You have to Logged In into the system.")
+      setShowAlert(true);
+        setAlertData({
+          severity: "error",
+          message: "You have to Logged In into the system!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
       navigate('/Login')
     }
 }, [])
@@ -50,15 +62,57 @@ const Reservations_Employee = () => {
     },
   }));
 
-  const RemovePresentReservation = (id) => {
+  const RemovePresentReservation = (id, plateNo, sDate, eDate, tCost) => {
     RemoveReservations(id);
-    alert("Reservation Cancelled Successfully!")
+    handleSendEmailForCancellation(plateNo, sDate, eDate, tCost);
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Reservation Cancelled Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
   }
 
-  const ConfirmPresentReservation = (id) => {
+  const ConfirmPresentReservation = (id, plateNo, sDate, eDate, tCost) => {
     ConfirmReservations(id);
-    alert("Reservation Confirmed Successfully!")
+    handleSendEmailForConfirmation(plateNo, sDate, eDate, tCost);
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Reservation Confirmed Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
   }
+
+  const handleSendEmailForConfirmation = async (plateNo, sDate, eDate, tCost) => {
+    await axios
+      .post("http://localhost:5000/api/reservations/sendEmail", {
+      to: "",
+      subject: "Your Reservation has been Confirmed Successfully!",
+      vehicle: plateNo,
+      From: sDate,
+      Till: eDate,
+      cost: tCost
+    })
+      .then((response) => setMsg(response.data.respMesg));
+  };
+
+  const handleSendEmailForCancellation = async (plateNo, sDate, eDate, tCost) => {
+    await axios
+      .post("http://localhost:5000/api/reservations/sendEmail", {
+      to: "",
+      subject: "Your Reservation has been Cancelled!",
+      vehicle: plateNo,
+      From: sDate,
+      Till: eDate,
+      cost: tCost
+    })
+      .then((response) => setMsg(response.data.respMesg));
+  };
 
 return (
 <div>
@@ -90,10 +144,10 @@ return (
                   <StyledTableCell style={{fontSize: '15px'}} >{row.endDate}</StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >{row.totalCost}</StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >
-                  <Button variant="contained" style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}} onClick={()=>{ConfirmPresentReservation(row._id)}} >Confirm</Button>  
+                  <Button variant="contained" style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}} onClick={()=>{ConfirmPresentReservation(row._id, row.vehicle.plateNumber, row.startDate, row.endDate, row.totalCost)}} >Confirm</Button>  
                   </StyledTableCell>
                   <StyledTableCell style={{fontSize: '15px'}} >
-                  <Button variant="contained" style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}} onClick={()=>{RemovePresentReservation(row._id)}} >Cancel</Button>    
+                  <Button variant="contained" style={{backgroundColor: 'red', width: '80%', textTransform: 'capitalize'}} onClick={()=>{RemovePresentReservation(row._id, row.vehicle.plateNumber, row.startDate, row.endDate, row.totalCost)}} >Cancel</Button>    
                   </StyledTableCell>
                 </StyledTableRow>
               ))}

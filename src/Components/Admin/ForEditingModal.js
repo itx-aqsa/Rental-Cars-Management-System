@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState, useContext } from "react";
 import Modal from "react-modal";
-import { EmployeeContext } from "../../Context/AllContexts";
+import { EmployeeContext, AlertContext } from "../../Context/AllContexts";
 import Button from "@mui/material/Button";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
@@ -24,8 +24,10 @@ const ForEditingModal = (props) => {
   const ref = useRef();
   const closeRef = useRef();
   const Context = useContext(EmployeeContext);
+  const alertcontext = useContext(AlertContext);
 
   const { editEmployee } = Context;
+  const { alertData, setAlertData, showAlert, setShowAlert } = alertcontext
 
   const [updatedEmployee, setUpdatedEmployee] = useState({
     id: "",
@@ -75,7 +77,14 @@ const ForEditingModal = (props) => {
     updatedEmployee.address,
     updatedEmployee.username
     )
-    alert("Edited Successfully!");
+    setShowAlert(true);
+        setAlertData({
+          severity: "success",
+          message: "Employee Updated Successfully!",
+        });
+        setTimeout(() => {
+          setShowAlert(false)
+        }, 3000);
     closeRef.current.click();
   };
 
